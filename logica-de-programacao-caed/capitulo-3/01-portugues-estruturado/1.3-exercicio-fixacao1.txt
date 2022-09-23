@@ -1,0 +1,26 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 1
+-------------------------------------
+
+1.3) Faça um algoritmo para calcular o volume de uma esfera de raio R, em que R é um dado fornecido pelo usuário. O volume de uma esfera é dado por V = (4 * Pi * R³) / 3.
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: R, // raio da esfera
+          V; // volume da esfera
+
+    // entrada de dados
+    escreva ("Programa para calcular o volume da esfera");
+    escreva ("Digite o valor do raio da esfera: ");
+    leia (R);
+
+    // processamento de dados
+    V <- (4 * 3,14 * pot(R,3)) / 3;
+
+    // saída de dados
+    escreva ("Volume da esfera = ", V);
+fim.

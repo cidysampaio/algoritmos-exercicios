@@ -1,0 +1,34 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 1
+-------------------------------------
+
+1.1) Construa um algoritmo para calcular as raízes de uma equação do 2º grau (Ax² + Bx + C), sendo que os valores A, B e C são fornecidos pelo usuário (considere que a equação possui duas raízes reais).
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: A, B, C, // coeficientes da equação
+          DELTA, X1, X2; // delta e raízes
+
+    // entrada de dados
+    escreva ("Programa para calcular as raízes de uma equação do 2º grau Ax² + Bx + C = 0;
+    escreva ("Digite o valor para coeficiente A: ");
+    leia (A);
+    escreva ("Digite o valor para coeficiente B: ");
+    leia (B);
+    escreva ("Digite o valor para coeficiente C: ");
+    leia (C);
+
+    // processamento de dados
+    DELTA <- (pot(B,2)) - (4 * A * C);
+    X1 <- (- B + rad(DELTA)) / (2 * A);
+    X2 <- (- B - rad(DELTA)) / (2 * A);
+
+    // saída de dados
+    escreva ("O valor de Delta = ", DELTA);
+    escreva ("O valor da raiz X1 = ", X1);
+    escreva ("O valor da raiz X2 = ", X2);
+fim.
