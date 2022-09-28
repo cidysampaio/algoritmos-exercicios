@@ -1,0 +1,64 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 2
+-------------------------------------
+
+2.2) Escreva um algoritmo que leia três valores inteiros e diferentes e mostre-os em ordem decrescente. Utilize para tal uma seleção encadeada.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: A, B, C;
+
+    // entrada de dados
+    escreva ("Programa para organizar os valores em ordem decrescente")
+    escreva ("Digite o primeiro número: ");
+    leia (A);
+    escreva ("Digite o segundo número: ");
+    leia (B);
+    escreva ("Digite o terceiro número: ");
+    leia (C);
+
+    // processamento e saída de dados
+    se ((A = B) e (B = C))
+        então
+            escreva ("Números são iguais! ", A, " = ", B, " = ", C);
+        senão
+            início
+                // A é o maior
+                se ((A > B) e (A > C))
+                    então
+                        se (B > C)
+                            então
+                                escreva ("Números em ordem decrescente: ", A, " > ", B, " > ", C);
+                            senão
+                                escreva ("Números em ordem decrescente: ", A, " > ", C, " > ", B);
+                        fimse;
+                fimse;
+
+                // B é o maior
+                se ((B > A) e (B > C))
+                    então
+                        se (A > C)
+                            então
+                                escreva ("Números em ordem decrescente: ", B, " > ", A, " > ", C);
+                            senão
+                                escreva ("Números em ordem decrescente: ", B, " > ", C, " > ", A);
+                        fimse;
+                fimse;
+
+                // C é o maior
+                se ((C > A) e (C > B))
+                    então
+                        se (A > B)
+                            então
+                                escreva ("Números em ordem decrescente: ", C, " > ", A, " > ", B);
+                            senão
+                                escreva ("Números em ordem decrescente: ", C, " > ", B, " > ", A);
+                        fimse;
+                fimse;
+            fim;
+    fimse;
+fim.
