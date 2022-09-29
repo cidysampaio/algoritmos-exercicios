@@ -1,0 +1,53 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 2
+-------------------------------------
+
+2.3) Desenvolva um algoritmo que calcule as raízes de uma equação do 2º grau, na forma Ax² + Bx + C, levando em consideração a existência de raízes reais.
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: A, B, C, // coeficientes da equação
+          DELTA, X1, X2; // delta e raízes
+
+    // entrada de dados
+    escreva ("Programa para calcular as raízes de uma equação do 2º grau Ax² + Bx + C = 0;
+    escreva ("Digite o valor para coeficiente A: ");
+    leia (A);
+    escreva ("Digite o valor para coeficiente B: ");
+    leia (B);
+    escreva ("Digite o valor para coeficiente C: ");
+    leia (C);
+
+    // processamento e saída de dados
+    DELTA <- pot(B,2) - 4 * A * C;
+
+    se (DELTA < 0) // não possui raízes reais
+        então
+            início
+                escreva ("Valor de Delta = ", DELTA);
+                escreva ("Delta < 0, então a equação não possui raízes reais.");
+        senão
+            se (DELTA = 0) // uma única raiz real
+                então
+                    início
+                        X1 <- -B / (2 * A);
+                        escreva ("Valor de Delta = ", DELTA);
+                        escreva ("Valor da raiz = ", X1);
+                        escreva ("Delta = 0, então a equação possui uma raiz real.);
+                    fim;
+                senão // duas raízes reais e distintas
+                    início
+                        X1 <- (- B + rad(DELTA)) / (2 * A);
+                        X2 <- (- B - rad(DELTA)) / (2 * A);
+                        escreva ("Valor de Delta = ", DELTA);
+                        escreva ("Valor da raiz X1 = ", X1);
+                        escreva ("valor da raiz X2 = ", X2);
+                        escreva ("Delta > 0, então a equação possui duas raízes reais e distintas.);
+                    fim;
+            fimse;
+    fimse;
+fim.
