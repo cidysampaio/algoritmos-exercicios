@@ -1,0 +1,37 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 2
+-------------------------------------
+
+2.6) Escreva um algoritmo que leia o código de um determinado produto e mostre a sua classificação. Utilize a seguinte tabela como referências:
+
+Código				Classificação
+1				Alimento não-perecível
+2, 3 ou 4			Alimento perecível
+5 ou 6				Vestuário
+7				Higiene pessoal
+8 até 15			Limpeza e utensílios domésticos
+Qualquer outro código		Inválido
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: COD; // código do produto
+
+    // entrada de dados
+    escreva ("Sistema para exibir informações sobre o produto");
+    escreva ("Informe o código do produto: ");
+    leia (COD);
+
+    // processamento e saída de dados
+    escolha COD
+        caso 1: escreva ("Tipo do produto: Alimento não-perecível");
+        caso 2..4: escreva ("Tipo do produto: Alimento perecível");
+        caso 5, 6: escreva ("Tipo do produto: Vestuário");
+        caso 7: escreva ("Tipo do produto: Higiene pessoal");
+        caso 8..15: escreva ("Tipo do produto: Limpeza e utensílios domésticos");
+        caso contrário: escreva ("Código Inválido!");
+    fimescolha;
+fim.

@@ -1,0 +1,45 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 2
+-------------------------------------
+
+2.5) Faça um algoritmo que leia o ano de nascimento de uma pessoa, calcule e mostre sua idade e, também, verifique e mostre se ela já tem idade para votar (16 anos ou mais) e para conseguir a Carteira de Habilitação (18 ou mais).
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: ANO_NASC, // ano de nascimento
+             ANO_COR, // ano corrente
+             IDADE; // calculo da idade
+
+    // entrada de dados
+    escreva ("Lista informações ao cidadão com base em sua idade");
+    escreva ("Digite o ano de nascimento: ");
+    leia (ANO_NASC);
+    escreva ("Digite o ano corrente: ");
+    leia (ANO_COR);
+
+    // processamento
+    IDADE <- ANO_COR - ANO_NASC
+
+    // saída de dados
+    se (IDADE >= 18)
+        então
+            início
+                escreva ("Você tem: ", IDADE, " anos.");
+                escreva ("Informações disponíveis:");
+                escreva ("- Exame de habilitação (CNH)");
+                escreva ("- Título de eleitor");
+            fim.
+        senão se (IDADE >= 16)
+                então
+                    início
+                        escreva ("Você tem: ", IDADE, " anos.");
+                        escreva ("Informações disponíveis:");
+                        escreva ("- Título de eleitor");
+                    fim.
+              fimse;
+    fimse;
+fim.
