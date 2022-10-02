@@ -1,0 +1,55 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 2
+-------------------------------------
+
+2.8) Elabore um algoritmo que calcule o que deve ser pago por um produto, considerando o preço normal de etiqueta e a escolha da condição de pagamento. Utilize os códigos da tabela a seguir para ler qual a condição de pagamento escolhida e efetuar o cálculo adequado.
+
+Código		Condição de pagamento
+1		À vista em dinheiro ou cheque, recebe 10% de desconto
+2		À vista no cartão de crédito, recebe 5% de desconto
+3		Em duas vezes, preço normal de etiqueta sem juros
+4		Em três vezes, preço normal de etiqueta mais juros de 10%
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: COD; // código de pagamento
+    real: PP, // preço do produto
+          VALOR; // preço após condição de pagamento
+
+    // entrada de dados
+    escreva ("Sistema para pagamentos dos produtos");
+    escreva ("Digite o valor do produto: ");
+    leia (PP);
+    escreva ("Digite o código de pagamento: ");
+    leia (COD);
+
+    // processamento e saída de dados
+    escolha COD
+        caso 1: início
+                    VALOR <- PP * 0,90;
+                    escreva ("Preço à vista em dinheiro ou cheque com 10% de desconto.");
+                    escreva ("Valor R$ = ", VALOR);
+                fim;
+        caso 2: início
+                    VALOR <- PP * 0,95;
+                    escreva ("Preço à vista no cartão com 5% de desconto.");
+                    escreva ("Valor R$ = ", VALOR);
+                fim;
+        caso 3: início
+                    VALOR <- PP / 2;
+                    escreva ("Preço em duas vezes sem juros.");
+                    escreva ("Valor 2 parcelas de R$ = ", VALOR);
+                fim;
+        caso 4: início
+                    VALOR <- (PP * 1,10) / 3;
+                    escreva ("Preço em três vezes com 10% de juros.");
+                    escreva ("Valor 3 parcelas de R$ = ", VALOR);
+                    escreva ("Total R$ = ", VALOR * 3);
+                fim;
+        caso contrário: escreva ("Erro! Código inexistente!");
+    fimescolha;
+fim.
