@@ -1,0 +1,59 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 2
+-------------------------------------
+
+2.9) Elabore um algoritmo que leia o valor de dois números inteiros e a operação aritmética desejada; calcule, então, a resposta adequada. Utilize os símbolos da tabela a seguir para ler qual a operação aritmética escolhida.
+
+Símbolo		Operação aritmética
++		Adição
+-		Subtração
+*		Multiplicação
+/		Divisão
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: N1, N2; // números
+    caracter: OP; // opção aritmética
+    real: RES; // resultados das operações
+
+    // entrada de dados
+    escreva ("Calculadora com operações essenciais");
+    escreva ("Digite o primeiro número: ");
+    leia (N1);
+    escreva ("Digite o segundo número: ");
+    leia (N2);
+    escreva ("Escolha a operação aritmética: ");
+    leia (OP);
+
+    // processamento e saída de dados
+    escolha OP
+        caso "+": início
+                      RES <- N1 + N2;
+                      escreva ("A soma é: ", RES);
+                  fim;
+        caso "-": início
+                      RES <- N1 - N2;
+                      escreva ("A subtração é: ", RES);
+                  fim;
+        caso "*": início
+                      RES <- N1 * N2;
+                      escreva ("A multiplicação é: ", RES);
+                  fim;
+        caso "/": início
+                      se (N2 = 0)
+                          então
+                              escreva ("Denominador nulo!");
+                          senão
+                              início
+                                  RES <- N1 / N2;
+                                  escreva ("A divisão é: ", RES);
+                              fim;
+                      fimse;
+                   fim;
+        caso contrário: escreva ("Erro! Código inexistente.");
+    fimescolha;
+fim.
