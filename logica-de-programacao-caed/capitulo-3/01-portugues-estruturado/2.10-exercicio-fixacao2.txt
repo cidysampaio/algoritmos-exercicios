@@ -1,0 +1,47 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 2
+-------------------------------------
+
+2.10) O IMC - Índice de Massa Corporal é um critério da Organização Mundial de Saúde para dar uma indicação sobre a condição de peso de uma pessoal adulta. A fórmula é IMC = peso / (altura)². Elabore um algoritmo que leia o peso e a altura de um adulto e mostre sua condição.
+
+IMC em adultos			Condição
+abaixo de 18,5			abaixo do peso
+entre 18,5 e 25			peso normal
+entre 25 e 30			acima do peso
+acima de 30			obeso
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: P, H, // peso e altura
+	  IMC; // fórmula
+
+    // entrada de dados
+    escreva ("Calculadora de IMC (Índice de Massa Corporal)");
+    escreva ("Digite o seu peso: ");
+    leia (P);
+    escreva ("Digite sua altura: ");
+    leia (H);
+
+    // processamento
+    IMC <- P / pot(H,2);
+
+    // saída de dados
+    se (IMC < 18,5)
+        então
+            escreva ("IMC = ", IMC, " | Condição: abaixo do peso");
+        senão se ((IMC >= 18,5) e (IMC < 25))
+            então
+                escreva ("IMC = ", IMC, " | Condição: peso normal");
+            senão se ((IMC >= 25) e (IMC < 30))
+                então
+                    escreva ("IMC = ", IMC, " | Condição: acima do peso");
+                senão
+                    escreva ("IMC = ", IMC, " | Condição: obeso");
+                  fimse;
+              fimse;
+    fimse;
+fim.
