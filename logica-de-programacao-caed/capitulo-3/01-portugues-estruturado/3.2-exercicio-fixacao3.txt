@@ -1,0 +1,30 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 3
+-------------------------------------
+
+3.2) Elabore um algoritmo que calcule um número inteiro que mais se aproxima da raiz quadrada de um número fornecido pelo usuário.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: NUM, // número fornecido pelo usuário
+	     RAIZ; // raiz inteira aproximada
+
+    // entrada de dados
+    escreva ("Sistema para informar o número inteiro mais próximo da raiz quadrada");
+    escreva ("Digite um número: ");
+    leia (NUM);
+
+    // processamento
+    RAIZ <- 0;
+    repita
+        RAIZ <- RAIZ + 1;
+    até ((RAIZ * RAIZ) > NUM);
+    RAIZ <- RAIZ - 1;
+
+    // saída de dados
+    escreva ("Inteiro aproximado da raiz quadrada de ", NUM, " é ", RAIZ);
+fim.
