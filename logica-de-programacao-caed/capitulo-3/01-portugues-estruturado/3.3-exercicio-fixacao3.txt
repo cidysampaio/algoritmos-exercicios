@@ -1,0 +1,44 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 3
+-------------------------------------
+
+3.3) Construa um algoritmo que verifique se um número fornecido pelo usuário é primo ou não.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: NUM, // número fornecido pelo usuário
+	     CON, // variável de controle
+	     AUX; // auxiliar para verificação
+
+    CON <- 1;
+    AUX <- 0;
+
+    // entrada de dados
+    escreva ("Sistema para verificar se o número é primo ou não");
+    escreva ("Digite um número: ");
+    leia (NUM);
+
+    // processamento e saída de dados
+    se (NUM > 0)
+        então
+            enquanto (CON <= NUM) faça
+                se (NUM mod CON = 0)
+                    então
+                        AUX = AUX + 1;
+                    CON = CON + 1;
+                fimse;
+            fimenquanto;
+            se (AUX = 2)
+                então
+                    escreva ("O número ", NUM, " é primo!");
+                senão
+                    escreva ("O número ", NUM, " não é primo!");
+            fimse;
+        senão
+            escreva ("Número negativo ou igual a zero!");
+    fimse;
+fim.
