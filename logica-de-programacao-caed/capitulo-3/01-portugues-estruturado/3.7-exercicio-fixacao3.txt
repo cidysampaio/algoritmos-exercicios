@@ -1,0 +1,45 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 3
+-------------------------------------
+
+3.7) Escreva um algoritmo que leia um conjunto de 20 números inteiros e mostre qual foi o maior e o menor valor fornecido.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: N, // números
+             ME, // menor número do conjunto
+             MA, // maior número do conjunto
+             CON; // contador
+
+    escreva("Sistema para exibir qual foi o maior e o menor valor fornecido");
+
+    // processamento e entrada de dados
+    para CON de 1 até 20 passo 1 faça // 20 iterações
+        escreva ("Digite o ", CON, "º número: ");
+        leia (N);
+        se (CON = 1) // é o primeiro valor?
+            então
+                início
+                    MA <- N; // maior valor recebe o primeiro valor
+                    ME <- N; // menor valor recebe o primeiro valor
+                fim;
+        fimse;
+        se (N > MA)  // o novo número é maior?
+            então
+                MA <- N; // atribui para maior o novo número
+            senão
+                se (N < ME) // o novo número é menor?
+                    então
+                        ME <- N; // atribui para menor o novo número
+                fimse;
+        fimse;
+    fimpara; // fim do laço de repetição
+
+    // saída de dados
+    escreva ("O maior número é: ", MA);
+    escreva ("O menor número é: ", ME);
+fim.

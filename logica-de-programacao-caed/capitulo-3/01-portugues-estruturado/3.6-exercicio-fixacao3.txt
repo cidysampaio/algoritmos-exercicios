@@ -1,0 +1,30 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 3
+-------------------------------------
+
+3.6) A série de Fibonacci é formada pela seguinte sequência 1, 1, 2, 3, 5, 8, 13, 21, 34, 55... etc. Escreva um algoritmo que gere a série de Fibonacci até o vigésimo termo.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: ATUAL, ANT1, ANT2, // variáveis para calcular os termos da série
+             V; // variável de controle
+
+    // atribuindo valores nas variáveis
+    escreva ("Sistema para calcular uma série Fibonacci até o vigésimo termo");
+    ANT1 <- 1;
+    ANT2 <- 1;
+
+    escreva ("Fibonacci até 20º termo = ", ANT1, ", ", ANT2, ", ");
+
+    // processamento e saída de dados
+    para V de 3 até 20 passo 1 faça
+        ATUAL <- ANT1 + ANT2;
+        escreva (ATUAL, ", ");
+        ANT1 <- ANT2;
+        ANT2 <- ATUAL;
+    fimpara;
+fim.

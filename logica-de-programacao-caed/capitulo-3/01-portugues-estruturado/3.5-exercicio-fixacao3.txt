@@ -1,0 +1,41 @@
+/*
+-------------------------------------
+Capítulo 3 - Exercício de Fixação 3
+-------------------------------------
+
+3.5) Elabore um algoritmo que calcule N! (fatorial de N), sendo que o valor inteiro de N é fornecido pelo usuário.
+
+Sabendo que:
+
+- N! = 1 x 2 x 3 x ... x (N - 1) x N;
+- 0! = 1, por definição.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: N, // dado de entrada
+             F, // resultado do fatorial de N
+             V; // variável de controle
+
+    // entrada de dados
+    escreva ("Sistema para fornecer o resultado de N! (fatorial de N);
+    escreva ("Digite um número: ");
+    leia (N);
+
+    // processamento e saída de dados
+    se (N = 0)
+        então
+            escreva ("Fatorial de ", N, "! = 1");
+        senão
+            início
+                F <- 1;
+                para V de 1 até N passo 1 faça
+                    F <- F * V;
+                fimpara;
+
+                escreva ("Fatorial de ", N, "! = ", F);
+            fim;
+    fimse;
+fim.
