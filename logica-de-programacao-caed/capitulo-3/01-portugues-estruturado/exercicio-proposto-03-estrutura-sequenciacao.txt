@@ -1,0 +1,33 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Sequenciação)
+-------------------------------------------------------------
+
+03) Prepare um algoritmo capaz de inverter um número, de 3 dígitos, fornecido, ou seja, apresentar primeiro a unidade e, depois, a dezena e a centena.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: U, // unidade
+             D, // dezena
+             C, // centena
+             NUMO, // número original
+             NUMI; // número invertido
+
+    escreva ("Sistema para exibir número de trêz dígitos invertido");
+
+    // entrada de dados
+    escreva ("Forneça um número de 3 dígitos: ");
+    leia (NUMO);
+
+    // processamento de dados
+    U <- NUMO mod 10;
+    D <- (NUMO mod 100) div 10;
+    C <- NUMO div 100;
+    NUMI <- (A * 100) + (B * 10) + C;
+
+    // saída de dados
+    escreva ("O número ", NUMO, " representado invertido é: ", NUMI);
+fim.

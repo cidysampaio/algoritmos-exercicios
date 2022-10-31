@@ -1,0 +1,34 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Sequenciação)
+-------------------------------------------------------------
+
+02) Elabore um algoritmo que calcule a área de um círculo qualquer de raio fornecido.
+
+- Fórmula: A = Pi * r²
+
+onde,
+
+Pi = constante 3,14
+r = raio
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: R, // raio do círculo
+          A; // área do círculo
+
+    escreva ("Sistema para calcular área de um círculo");
+
+    // entrada de dados
+    escreva ("Digite o valor do raio do círculo: ");
+    leia (R);
+
+    // processamento
+    A <- 3,14 * pot(R,2);
+
+    // saída de dados
+    escreva ("A área do círculo é: ", A);
+fim.
