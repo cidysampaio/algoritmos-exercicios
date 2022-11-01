@@ -1,0 +1,36 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Sequenciação)
+-------------------------------------------------------------
+
+04) Ao completar o tanque de combustível de um automóvel, faça um algoritmo que calcule o consumo efetuado, assim como a autonomia que o carro ainda teria antes do abastecimento. Considere que o veículo sempre seja abastecido até encher o tanque e que são fornecidas apenas a capacidade do tanque, a quantidade de litros abastecidos e a quilometragem percorrida desde o último abastecimento.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: CTC, // capacidade do tanque de combustível
+             QLA, // quantidade de litros abastecidos
+             KM; // quilômetros percorridos
+    real: C, // consumo
+          AF; // autonomia futura
+
+    escreva ("Sistema para exibir o consumo e autonomia do automóvel");
+
+    // entrada de dados
+    escreva ("Digite a capacidade do tanque de combustível: ");
+    leia (CTC);
+    escreva ("Digite quantos litros para encher o tanque: ");
+    leia (QLA);
+    escreva ("Digite quantos quilômetros percorridos: ");
+    leia (KM);
+
+    // processamento de dados
+    C <- KM / QLA;
+    AF <- (CTC - QLA) * C;
+
+    // saída de dados
+    escreva ("O veículo percorre ", C, " km/l");
+    escreva ("Ainda tinha autonomia de: ", AF, " km");
+fim.
