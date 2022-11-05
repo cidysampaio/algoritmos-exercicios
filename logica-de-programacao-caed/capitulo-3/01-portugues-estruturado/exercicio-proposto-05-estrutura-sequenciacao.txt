@@ -1,0 +1,45 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Sequenciação)
+-------------------------------------------------------------
+
+05) Dada uma determinada data de aniversário (dia, mês e ano separadamente), elabore um algoritmo que solicite a data atual (dia, mês e ano separadamente) e calcule a idade em ano, em meses e em dias.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: D1, D2, // dia
+             M1, M2, // mês
+             A1, A2, // ano
+             ID, IM, IA; // idade dia, idade mês, idade ano
+
+    escreva ("Sistema para exibir a idade em ano, em meses e em dias");
+
+    // entrada de dados
+    escreva ("Digite o dia que você nasceu: ");
+    leia (D1);
+    escreva ("Digite o mês que você nasceu: ");
+    leia (M1);
+    escreva ("Digite o ano que você nasceu: ");
+    leia (A1);
+    escreva ("Digite o dia atual: ");
+    leia (D2);
+    escreva ("Digite o mês atual: ");
+    leia (M2);
+    escreva ("Digite o ano atual: ");
+    leia (A2);
+
+    // processamento de dados
+    IA <- A2 - A1;
+    IM <- (IA * 12) + (M2 - M1);
+    ID <- (IA * 360) + ((M2 - M1) * 30) + (D2 - D1);
+
+    // saída de dados
+    escreva ("Você nasceu ", D1, "/", M1, "/", A1);
+    escreva ("Estamos em ", D2, "/", M2, "/", A2);
+    escreva ("Sua idade em dias é: ", ID);
+    escreva ("Sua idade em meses é: ", IM);
+    escreva ("Sua idade em anos é: ", IA);
+fim.

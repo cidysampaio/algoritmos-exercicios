@@ -1,0 +1,38 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Sequenciação)
+-------------------------------------------------------------
+
+07) Escreva um algoritmo que, a partir de um mês fornecido (número inteiro de 1 a 12), apresente o nome dele por extenso ou uma mensagem de mês inválido.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: MES; // número referente ao mês
+
+    escreva ("Sistema para exibir o nome do mês por extenso");
+
+    // entrada de dados
+    escreva ("Digite número entre 1 a 12 e descubra o mês: ");
+    leia (MES);
+    escreva ("Mês escolhido: ");
+
+    // processamento e saída de dados
+    escolha MES;
+        caso 1: escreva (MES, " - Janeiro");
+        caso 2: escreva (MES, " - Fevereiro");
+        caso 3: escreva (MES, " - Março");
+        caso 4: escreva (MES, " - Abril");
+        caso 5: escreva (MES, " - Maio");
+        caso 6: escreva (MES, " - Junho");
+        caso 7: escreva (MES, " - Julho");
+        caso 8: escreva (MES, " - Agosto");
+        caso 9: escreva (MES, " - Setembro");
+        caso 10: escreva (MES, " - Outubro");
+        caso 11: escreva (MES, " - Novembro");
+        caso 12: escreva (MES, " - Dezembro");
+        caso contrário: escreva (MES, " - Valor de mês inválido");
+    fimescolha;
+fim.
