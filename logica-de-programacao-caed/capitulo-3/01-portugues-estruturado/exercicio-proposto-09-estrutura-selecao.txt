@@ -1,0 +1,125 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Seleção)
+-------------------------------------------------------------
+
+09) Escreva o signo do zodíaco correspondente ao dia e mês informado.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: DIA, MES;
+
+    escreva ("Sistema que exibe os signos do zodíaco");
+
+    // entrada de dados
+    escreva ("Informe o dia de nascimento: ");
+    leia (DIA);
+    escreva ("Informe o mês de nascimento: ");
+    leia (MES);
+
+    // processamento e saída de dados
+    se (MES > 12 ou MES < 1 ou DIA > 31 ou DIA < 1)
+        então
+            escreva ("Data inválida!");
+        senão se (MES = 4 ou MES = 6 ou MES = 9 ou MES = 11) e (DIA > 30)
+                então
+                    escreva ("Data inválida!");
+                senão se (MES = 1 ou MES = 3 ou MES = 5 ou MES = 7 ou MES = 8 ou MES = 10 ou MES = 12) e (DIA > 31)
+                        então
+                            escreva ("Data inválida!");
+                        senão se (MES = 2) e (DIA > 29)
+                                então
+                                    escreva ("Data inválida!");
+                              fimse;
+                      fimse;
+              fimse;
+        senão
+            se ((DIA >= 21 e MES = 3) ou (DIA <= 20 e MES = 4))
+                então
+                    início
+                        escreva ("Signo de Áries");
+                        escreva ("Nascidos entre: 21/03 a 20/04");
+                    fim;
+                senão se ((DIA >= 21 e MES = 4) ou (DIA <= 20 e MES = 5))
+                        então
+                            início
+                                escreva ("Signo de Touro");
+                                escreva ("Nascidos entre: 21/04 a 20/05");
+                            fim;
+                        senão se ((DIA >= 21 e MES = 5) ou (DIA <= 20 e MES = 6))
+                                então
+                                    início
+                                        escreva ("Signo de Gemêos");
+                                        escreva ("Nascidos entre: 21/05 a 20/06");
+                                    fim;
+                                senão se ((DIA >= 21 e MES = 6) ou (DIA <= 22 e MES = 7))
+                                        então
+                                            início
+                                                escreva ("Signo de Câncer");
+                                                escreva ("Nascidos entre: 21/06 a 22/07");
+                                            fim;
+                                        senão se ((DIA >= 23 e MES = 7) ou (DIA <= 22 e MES = 8))
+                                                então
+                                                    início
+                                                        escreva ("Signo de Leão");
+                                                        escreva ("Nascidos entre: 23/07 a 22/08");
+                                                    fim;
+                                                senão se ((DIA >= 23 e MES = 8) ou (DIA <= 22 e MES = 9))
+                                                        então
+                                                            início
+                                                                escreva ("Signo de Virgem");
+                                                                escreva ("Nascidos entre: 23/08 a 22/09");
+                                                            fim;
+                                                        senão se ((DIA >= 23 e MES = 9) ou (DIA <= 22 e MES = 10))
+                                                                então
+                                                                    início
+                                                                        escreva ("Signo de Libra");
+                                                                        escreva ("Nascidos entre: 23/09 a 22/10");
+                                                                    fim;
+                                                                senão se ((DIA >= 23 e MES = 10) ou (DIA <= 21 e MES = 11))
+                                                                        então
+                                                                            início
+                                                                                escreva ("Signo de Escorpião");
+                                                                                escreva ("Nascidos entre: 23/10 a 21/11");
+                                                                            fim;
+                                                                        senão se ((DIA >= 22 e MES = 11) ou (DIA <= 21 e MES = 12))
+                                                                                então
+                                                                                    início
+                                                                                        escreva ("Signo de Sagitário");
+                                                                                        escreva ("Nascidos entre: 22/11 a 21/12");
+                                                                                    fim;
+                                                                                senão se ((DIA >= 22 e MES = 12) ou (DIA <= 20 e MES = 1))
+                                                                                        então
+                                                                                            início
+                                                                                                escreva ("Signo de Capricórnio");
+                                                                                                escreva ("Nascidos entre: 22/12 a 20/01");
+                                                                                            fim;
+                                                                                        senão se ((DIA >= 21 e MES = 1) ou (DIA <= 18 e MES = 2))
+                                                                                                então
+                                                                                                    início
+                                                                                                        escreva ("Signo de Aquário");
+                                                                                                        escreva ("Nascidos entre: 21/01 a 18/02");
+                                                                                                    fim;
+                                                                                                senão se ((DIA >= 19 e MES = 2) ou (DIA <= 20 e MES = 3))
+                                                                                                        então
+                                                                                                            início
+                                                                                                                escreva ("Signo de Peixes");
+                                                                                                                escreva ("Nascidos entre: 19/02 a 20/03");
+                                                                                                            fim;
+                                                                                                      fimse;
+                                                                                              fimse;
+                                                                                      fimse;
+                                                                              fimse;
+                                                                      fimse;
+                                                              fimse;
+                                                      fimse;
+                                              fimse;
+                                      fimse;
+                              fimse;
+                      fimse;
+            fimse;
+    fimse;
+fim.

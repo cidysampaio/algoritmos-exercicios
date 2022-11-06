@@ -1,0 +1,94 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Seleção)
+-------------------------------------------------------------
+
+08) Elabore um algoritmo que, a partir de um dia, mês e ano fornecidos, valide se eles compõem uma data válida. Não deixe de considerar os meses com 30 ou 31 dias, e o tratamento de ano bissexto.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: DIA, MES, ANO; // data que será validada
+
+    escreva ("Sistema para validar a data fornecida");
+
+    // entrada de dados
+    escreva ("Informe o dia: ");
+    leia (DIA);
+    escreva ("Informe o mês: ");
+    leia (MES);
+    escreva ("Informe o ano: ");
+    leia (ANO);
+
+    // processamento e saída de dados
+    se (ANO <= 0 ou MES > 12 ou MES < 1 ou DIA > 31 ou DIA < 1)
+        então
+            início
+                escreva ("Data inválida!");
+                escreva ("Data fornecida: ", DIA, "/", MES, "/", ANO);
+            fim;
+        senão
+            se (MES = 2)
+                então
+                    se ((ANO mod 4 = 0 e ANO mod 100 <> 0) ou ANO mod 400 = 0)
+                        então
+                            se (DIA > 29)
+                                então
+                                    início
+                                        escreva ("Data inválida!");
+                                        escreva ("Data fornecida: ", DIA, "/", MES, "/", ANO);
+                                    fim;
+                                senão
+                                    início
+                                        escreva ("Data válida!");
+                                        escreva ("Data fornecida: ", DIA, "/", MES, "/", ANO, " (ano bissexto)");
+                                    fim;
+                            fimse;
+                        senão
+                            se (DIA > 28)
+                                então
+                                    início
+                                        escreva ("Data inválida!");
+                                        escreva ("Data fornecida: ", DIA, "/", MES, "/", ANO);
+                                    fim;
+                                senão
+                                    início
+                                        escreva ("Data válida!");
+                                        escreva ("Data fornecida: ", DIA, "/", MES, "/", ANO);
+                                    fim;
+                            fimse;
+                    fimse;
+                senão
+                    se ((ANO mod 4 = 0 e ANO mod 100 <> 0) ou ANO mod 400 = 0)
+                        então
+                            se (MES = 4 ou MES = 6 ou MES = 9 ou MES = 11)
+                                então
+                                    se (DIA > 30)
+                                        então
+                                            início
+                                                escreva ("Data inválida!");
+                                                escreva ("Data fornecida: ", DIA, "/", MES, "/", ANO);
+                                            fim;
+                                        senão
+                                            início
+                                                escreva ("Data válida!");
+                                                escreva ("Data fornecida: ", DIA, "/", MES, "/", ANO, " (ano bissexto)");
+                                            fim;
+                                    fimse;
+                                senão
+                                    início
+                                        escreva ("Data válida!");
+                                        escreva ("Data fornecida: ", DIA, "/", MES, "/", ANO);
+                                    fim;
+                            fimse;
+                        senão
+                            início
+                                escreva ("Data válida!");
+                                escreva ("Data fornecida: ", DIA, "/", MES, "/", ANO);
+                            fim;
+                    fimse;
+            fimse;
+    fimse;
+fim.
