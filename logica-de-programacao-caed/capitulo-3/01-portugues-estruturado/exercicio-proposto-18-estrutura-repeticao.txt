@@ -1,0 +1,53 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+18) Construa um algoritmo que, dado um conjunto de valores inteiros e positivos, determine qual o menor e o maior valor do conjunto. O final do conjunto de valores é conhecido pelo valor -1, que não deve ser considerado.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: VALOR, MAIOR, MENOR, // números inseridos
+             CONT; // variável de controle
+
+    escreva ("Sistema que exibe o menor e o maior valor entre os números informados");
+
+    // entrada de dados
+    escreva ("Digite um número (-1 para encerrar): ");
+    leia (VALOR);
+
+    CONT <- 0;
+    MAIOR <- 0;
+    MENOR <- 0;
+
+    // processamento de dados
+    enquanto (VALOR >= 0) faça
+        se (CONT = 0)
+            então
+                início
+                    MAIOR <- VALOR;
+                    MENOR <- VALOR;
+                    CONT <- CONT + 1;
+                fim;
+        fimse;
+
+        se (VALOR > MAIOR)
+            então
+                MAIOR <- VALOR;
+            senão se (VALOR < MENOR)
+                    então
+                        MENOR <- VALOR;
+                  fimse;
+        fimse;
+
+        escreva ("Digite um número (-1 para encerrar): ");
+        leia (VALOR);
+    fimenquanto;
+
+    // saída de dados
+    escreva ("O menor valor digitado foi: ", MENOR);
+    escreva ("O maior valor digitado foi: ", MAIOR);
+fim.

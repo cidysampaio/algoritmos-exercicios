@@ -1,0 +1,95 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Seleção)
+-------------------------------------------------------------
+
+12) Construa um algoritmo que seja capaz de concluir qual dentre os seguintes animais foi escolhido, através de perguntas e respostas. Animais possíveis: leão, cavalo, homem, macaco, morcego, baleia, avestruz, pinguim, pato, águia, tartaruga, crocodilo e cobra.
+
+Exemplo
+
+É mamífero? Sim.
+É quadrúpede? Sim.
+É carnívoro? Não.
+É herbívoro? Sim.
+Então o animal escolhido foi o cavalo.
+
+Utilize as seguintes classificações:
+
+Mamíferos	->	Quadrúpedes	->	Carnívoros	->	Leão
+Mamíferos	->	Quadrúpedes	->	Herbívoros	->	Cavalo
+Mamíferos	->	Bípedes 	->	Onívoros	->	Homem
+Mamíferos	->	Bípedes 	->	Frutívoros	->	Macaco
+Mamíferos	->	Voadores 	->	Morcego
+Mamíferos	->	Aquáticos 	->	Baleia
+
+Aves    	->	Não-voadoras 	->	Tropicais	->	Avestruz
+Aves    	->	Não-voadoras 	->	Polares 	->	Pinguim
+Aves    	->	Nadadoras 	->	Pato
+Aves    	->	De rapina 	->	Águia
+
+Répteis    	->	Com casco 	->	Tartaruga
+Répteis    	->	Carnívoros 	->	Crocodilo
+Répteis    	->	Sem patas 	->	Cobra
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: NUM; // número da escolha
+
+    escreva ("Sistema para seleção de animais");
+
+    // entrada de dados, processamento e saída de dados
+    escreva ("Responda as perguntas utilizando a marcação numérica correspondente a sua escolha:");
+    escreva ("O animal que você escolheu é?");
+    escreva ("(1)MAMÍFERO   (2)AVE   (3)RÉPTIL : ");
+    leia (NUM);
+
+    escolha NUM
+        caso 1: escreva ("(1)QUADRÚPEDE   (2)BÍPEDE   (3)VOADOR   (4)AQUÁTICO : ");
+                leia (NUM);
+                escolha NUM
+                    caso 1: escreva ("(1)CARNÍVORO   (2)HERBÍVORO : ");
+                            leia (NUM);
+                            escolha NUM
+                                caso 1: escreva ("Então o animal escolhido foi o LEÃO");
+                                caso 2: escreva ("Então o animal escolhido foi o CAVALO");
+                                caso contrário: escreva ("Código Inválido!");
+                            fimescolha;
+                    caso 2: escreva ("(1)ONÍVORO   (2)FRUTÍVORO : ");
+                            leia (NUM);
+                            escolha NUM
+                                caso 1: escreva ("Então o animal escolhido foi o HOMEM");
+                                caso 2: escreva ("Então o animal escolhido foi o MACACO");
+                                caso contrário: escreva ("Código Inválido!");
+                            fimescolha;
+                    caso 3: escreva ("Então o animal escolhido foi o MORCEGO");
+                    caso 4: escreva ("Então o animal escolhido foi a BALEIA");
+                    caso contrário: escreva ("Código Inválido!");
+                fimescolha;
+        caso 2: escreva ("(1)NÃO VOADORA   (2)NADADORA   (3)DE RAPINA : ");
+                leia (NUM);
+                escolha NUM
+                    caso 1: escreva ("(1)TROPICAL   (2)POLAR : ");
+                            leia (NUM);
+                            escolha NUM
+                                caso 1: escreva ("Então o animal escolhido foi o AVESTRUZ");
+                                caso 2: escreva ("Então o animal escolhido foi o PINGUIM");
+                                caso contrário: escreva ("Código Inválido!");
+                            fimescolha;
+                    caso 2: escreva ("Então o animal escolhido foi o PATO");
+                    caso 3: escreva ("Então o animal escolhido foi a ÁGUIA");
+                    caso contrário: escreva ("Código Inválido!");
+                fimescolha;
+        caso 3: escreva ("(1)COM CASCO   (2)CARNÍVORO   (3)SEM PATAS : ");
+                leia (NUM);
+                escolha NUM
+                    caso 1: escreva ("Então o animal escolhido foi a TARTARUGA");
+                    caso 2: escreva ("Então o animal escolhido foi o CROCODILO");
+                    caso 3: escreva ("Então o animal escolhido foi a COBRA");
+                    caso contrário: escreva ("Código Inválido!");
+                fimescolha;
+        caso contrário: escreva ("Código Inválido!");
+    fimescolha;    
+fim.

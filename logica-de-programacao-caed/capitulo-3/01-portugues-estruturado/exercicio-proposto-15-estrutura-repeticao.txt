@@ -1,0 +1,41 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+15) Faça um algoritmo que seja capaz de obter o quociente inteiro da divisão de dois números fornecidos, sem utilizar a operação de divisão (/) e nem divisão inteira (div).
+
+"Elementos da divisão"
+
+dividendo | divisor
+resto     | quociente
+
+"D = (d * q) + r"
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: DIVIDENDO, DIVISOR, QUOCIENTE, AUX;
+
+    escreva ("Algoritmo de divisão por subtração sucessiva para obter quociente inteiro");
+
+    // entrada de dados
+    escreva ("Digite o primeiro número: ");
+    leia (DIVIDENDO);
+    escreva ("Digite o segundo número: ");
+    leia (DIVISOR);
+
+    AUX <- DIVIDENDO;
+    QUOCIENTE <- 0;
+
+    // processamento de dados		
+    enquanto (AUX >= DIVISOR) faça
+        AUX <- AUX - DIVISOR;
+        QUOCIENTE <- QUOCIENTE + 1;
+    fimenquanto;
+
+    // saída de dados
+    escreva ("O quociente da divisão entre ", DIVIDENDO, " / ", DIVISOR, " = ", QUOCIENTE);
+fim.

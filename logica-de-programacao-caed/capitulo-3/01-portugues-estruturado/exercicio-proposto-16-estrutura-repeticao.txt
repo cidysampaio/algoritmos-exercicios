@@ -1,0 +1,38 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+16) Faça um algoritmo que seja capaz de obter o resultado de uma exponenciação para qualquer base e expoente inteiro fornecidos, sem utilizar a operação de exponenciação (pot).
+
+"Elementos da potenciação (exponenciação)"
+
+base ^ expoente = potência
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: BASE, EXPOENTE, CONT, AUX;
+
+    escreva ("Algoritmo de exponenciação por multiplicação sucessiva");
+
+    // entrada de dados
+    escreva ("Digite o primeiro número (base): ");
+    leia (BASE);
+    escreva ("Digite o segundo número (expoente): ");
+    leia (EXPOENTE);
+
+    AUX <- 1;
+    CONT <- 0;
+
+    // processamento de dados
+    enquanto (CONT < EXPOENTE) faça
+        AUX <- AUX * BASE;
+        CONT <- CONT + 1;
+    fimenquanto;
+
+    // saída de dados
+    escreva ("O resultado da exponenciação entre ", BASE, " ^ ", EXPOENTE, " = ", AUX);
+fim.

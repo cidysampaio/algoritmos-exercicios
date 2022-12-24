@@ -1,0 +1,40 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+13) Elabore um algoritmo que obtenha o mínimo múltiplo comum (MMC) entre dois números fornecidos.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: A, B, // números fornecidos pelo usuário
+             A1, B1, // cópia dos números
+             R, // resto da divisão (módulo)
+             MMC; // resultado mínimo múltiplo comum
+
+    escreva ("Sistema para calcular o mínimo múltiplo comum (MMC)");
+
+    // entrada de dados
+    escreva ("Digite o primeiro número: ");
+    leia (A);
+    escreva ("Digite o segundo número: ");
+    leia (B);
+
+    A1 <- A;
+    B1 <- B;
+
+    // processamento de dados		
+    enquanto (B <> 0) faça  // Algoritmo de Euclides iterativo
+        R <- A % B;
+        A <- B;
+        B <- R;
+    fimenquanto;
+
+    MMC <- A1 * (B1 / A);  // Algoritmo do MMC
+
+    // saída de dados
+    escreva ("MMC(", A1, ", ", B1, ") = ", MMC);       
+fim.

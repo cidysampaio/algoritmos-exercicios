@@ -1,0 +1,37 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+14) Elabore um algoritmo que obtenha o máximo divisor comum (MDC) entre dois números fornecidos.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: A, B, // números fornecidos pelo usuário
+             A1, B1, // cópia dos números
+             R; // resto da divisão (módulo)
+
+    escreva ("Sistema para calcular o máximo divisor comum (MDC)");
+
+    // entrada de dados
+    escreva ("Digite o primeiro número: ");
+    leia (A);
+    escreva ("Digite o segundo número: ");
+    leia (B);
+
+    A1 <- A;
+    B1 <- B;
+
+    // processamento de dados		
+    enquanto (B <> 0) faça  // Algoritmo de Euclides iterativo
+        R <- A % B;
+        A <- B;
+        B <- R;
+    fimenquanto;
+
+    // saída de dados
+    escreva ("MDC(", A1, ", ", B1, ") = ", A);       
+fim.
