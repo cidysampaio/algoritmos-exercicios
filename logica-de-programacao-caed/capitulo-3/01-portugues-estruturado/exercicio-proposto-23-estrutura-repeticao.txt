@@ -1,0 +1,75 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+23) Elabore um algoritmo que imprima todos os números primos existentes entre N1 e N2, em que N1 e N2 são números naturais fornecidos pelo usuário.
+
+Um número é classificado como primo se ele é maior do que um e é divisível apenas por um e por ele mesmo. Apenas números naturais são classificados como primos.
+
+Exemplos de números primos:
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, ...
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: NUM1, NUM2, // números fornecidos pelo usuário
+             CON, CONT, // contadores
+             AUX, // acumulador
+             NP, // número não é primo
+             SP, // número é primo
+             PRIMO; // valor do número primo
+
+    NP <- 0;
+    SP <- 0;
+    PRIMO <- 0;
+
+    escreva ("Sistema para exibir todos os números primos existentes entre os números fornecidos")
+
+    escreva ("Digite o primeiro número: ");
+    leia (NUM1);
+    escreva ("Digite o segundo número: ");
+    leia (NUM2);
+
+    se (NUM1 > NUM2)
+        então
+            início
+                AUX <- NUM1;
+                NUM1 <- NUM2;
+                NUM2 <- AUX;
+            fim;
+    fimse;
+
+    AUX <- 0;
+
+    escreva ("Números primos: ");
+
+    para CON de NUM1 até NUM2 passo 1 faça
+        para CONT de 1 até CON passo 1 faça
+            se (CON mod CONT <> 0)
+                então
+                    NP <- NP + 1;
+                senão
+                    início
+                        SP <- SP + 1;
+                        PRIMO = CON;
+                    fim;
+            fimse;
+        fimpara;
+
+        se (SP = 2)
+            então
+                início
+                    AUX <- AUX + 1;
+                    escreva (PRIMO, ", ");
+                fim;
+        fimse;
+
+        SP <- 0;
+    fimpara;
+
+    // saída de dados
+    escreva ("Quantidade: ", AUX);    
+fim.

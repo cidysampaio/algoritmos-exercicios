@@ -1,0 +1,37 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+20) Uma rainha requisitou os serviços de um monge e disse-lhe que pagaria qualquer preço. O monge, necessitando de alimentos, perguntou à rainha se o pagamento poderia ser feito com grãos de trigo dispostos em um tabuleiro de xadrez, de tal forma que o primeiro quadro contivesse apenas um grão e os quadros subsequentes, o dobro do quadro anterior. A rainha considerou o pagamento barato e pediu que o serviço fosse executado, sem se dar conta de que seria impossível efetuar o pagamento. Faça um algoritmo para calcular o número de grãos que o monge esperava receber.
+
+Tabuleiro de Xadrez
+
+64 casas distribuídas em 8 colunas (verticais) e 8 fileiras (horizontais).
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: GT, // grãos de trigo
+             SOMA, // total grãos de trigo
+             CON; // contador
+
+    escreva ("Sistema para calcular o pagamento em número de gráos");
+
+    GT <- 1;
+    SOMA <- 1;
+
+    escreva ("Casa do tabuleiro xadrez: 1", " | Valor: 1", " | Somatório: 1");
+
+    // processamento de dados
+    para CON de 2 até 64 passo 1 faça
+        GT <- GT * 2;
+        SOMA <- SOMA + GT;
+        escreva ("Casa do tabuleiro xadrez: ", CON, " | Valor: ", GT, " | Somatório: ", SOMA);
+    fimpara;
+
+    // saída de dados
+    escreva ("A quantidade total de grãos de trigo é: ", SOMA);
+fim.

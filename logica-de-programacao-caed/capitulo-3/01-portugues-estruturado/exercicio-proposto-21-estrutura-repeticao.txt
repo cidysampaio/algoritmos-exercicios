@@ -1,0 +1,96 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+21) Em uma eleição presidencial existem quatro candidatos. Os votos são informados por código. Os dados utilizados para a escrutinagem obedecem à seguinte codificação:
+
+• 1, 2, 3, 4 = voto para os respectivos candidatos;
+• 5 = voto nulo;
+• 6 = voto em branco.
+
+Elabore um algoritmo que calcule e escreva:
+
+a) O total de votos para cada candidato e seu porcentual sobre o total;
+b) O total de votos nulos e seu porcentual sobre o total;
+c) O total de votos em branco e seu porcentual sobre o total.
+
+Como finalizador do conjunto de votos, tem-se o valor 0.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: CA, CB, CC, CD, // candidatos A, B, C e D
+             VN, VB, // votos nulos e votos em branco
+             EP, // códigos de seleção dos candidatos
+             CONEP; // contador do total de votos
+
+    real: PA, PB, PC, PD, // porcentagem votos dos candidatos A, B, C e D
+          PVN, PVB; // porcentagem votos nulos e branco
+
+    // inicialização dos diversos contadores
+    CA <- 0;
+    CB <- 0;
+    CC <- 0;
+    CD <- 0;
+    VN <- 0;
+    VB <- 0;
+    CONEP <- 0;
+
+    // processamento de dados
+    repita
+        escreva ("Sistema de votação e resultado da eleição presidencial");
+        escreva("+-------------------------------------------+");
+        escreva("|        MENU (Eleição Presidencial)        |");
+        escreva("+-------------------------------------------+");
+        escreva("| COD |             CANDIDATO               |");
+        escreva("+-------------------------------------------+");
+        escreva("|  1  →  Candidato A                        |");
+        escreva("|  2  →  Candidato B                        |");
+        escreva("|  3  →  Candidato C                        |");
+        escreva("|  4  →  Candidato D                        |");
+        escreva("|  5  →  Voto Nulo                          |");
+        escreva("|  6  →  Voto Branco                        |");
+        escreva("|  0  →  Encerrar                           |");
+        escreva("+-------------------------------------------+");
+        escreva("Escolha seu candidato, insira seu voto: ");
+        leia (EP);
+
+        escolha EP
+            caso "0": escreva("Votação encerrada!\n\n");
+            caso "1": CA <- CA + 1;
+            caso "2": CB <- CB + 1;
+            caso "3": CC <- CC + 1;
+            caso "4": CD <- CD + 1;
+            caso "5": VN <- VN + 1;
+            caso "6": VB <- VB + 1;
+            caso contrário: escreva ("Voto inválido! Encerrado a votação.");
+                            EP <- 0;
+        fimescolha;
+
+        CONEP <- CONEP + 1;
+    até (EP <> 0);
+
+    CONEP <- CONEP - 1 // descontar o finalizador 0
+
+    se (CONEP > 0)
+        então
+            PA <- (CA * 100.0) / CONEP;
+            PB <- (CB * 100.0) / CONEP;
+            PC <- (CC * 100.0) / CONEP;
+            PD <- (CD * 100.0) / CONEP;
+            PVN <- (VN * 100.0) / CONEP;
+            PVB <- (VB * 100.0) / CONEP;
+            escreva ("Total de votos: ", CONEP);
+            escreva ("Candidato A obteve: ", CA, " voto(s) | Porcentagem de voto(s): ", PA, "% do total");
+            escreva ("Candidato B obteve: ", CB, " voto(s) | Porcentagem de voto(s): ", PB, "% do total");
+            escreva ("Candidato C obteve: ", CC, " voto(s) | Porcentagem de voto(s): ", PC, "% do total");
+            escreva ("Candidato D obteve: ", CD, " voto(s) | Porcentagem de voto(s): ", PD, "% do total");
+            escreva ("Voto Nulo.........: ", VN, " voto(s) | Porcentagem de voto(s): ", PVN, "% do total");
+            escreva ("Voto Branco.......: ", VB, " voto(s) | Porcentagem de voto(s): ", PVB, "% do total");
+        senão
+            escreva ("Nenhum voto foi registrado!");
+    fimse;
+fim.
