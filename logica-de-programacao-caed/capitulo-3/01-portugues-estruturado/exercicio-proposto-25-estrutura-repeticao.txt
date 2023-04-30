@@ -1,0 +1,39 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+25) Prepare um algoritmo que calcule o valor de H, sendo que ele é determinado pela série:
+
+H = 1/1 + 3/2 + 5/3 + 7/4 + ... + 99/50
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: RES, // determinar o valor de H
+          NUMERADOR, DENOMINADOR;
+
+    RES <- 1;
+    NUMERADOR <- 1;
+    DENOMINADOR <- 1;
+
+    escreva ("Sistema para exibir o resultado de H na série:");
+    escreva ("H = 1/1 + 3/2 + 5/3 + 7/4 + ... + 99/50");
+
+    // processamento de dados
+    enquanto (DENOMINADOR <= 49) faça
+        NUMERADOR <- NUMERADOR + 2;
+        DENOMINADOR <- DENOMINADOR + 1;
+
+        se (RES < 96)
+            então
+                escreva ("H = ", RES, " + (", NUMERADOR, " / ", DENOMINADOR, ")");
+
+        RES <- RES + (NUMERADOR / DENOMINADOR)
+    fimenquanto;
+
+    // saída de dados
+    escreva("O valor de H = ", RES);
+fim.

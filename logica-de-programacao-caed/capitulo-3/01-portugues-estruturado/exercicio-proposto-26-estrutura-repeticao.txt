@@ -1,0 +1,45 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+26) Elabore um algoritmo que determine o valor de S, em que:
+
+S = 1/1 - 2/4 + 3/9 - 4/16 + 5/25 - 6/36 ... -10/100
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: RES, // determinar o valor de S
+          NUMERADOR, DENOMINADOR;
+
+    RES <- 0;
+    NUMERADOR <- 0;
+    DENOMINADOR <- 0;
+
+    escreva ("Sistema para exibir o resultado de S na série:");
+    escreva ("S = 1/1 - 2/4 + 3/9 - 4/16 + 5/25 - 6/36 ... -10/100");
+
+    // processamento e saída de dados
+    repita
+        NUMERADOR <- NUMERADOR + 1;
+        DENOMINADOR <- pot(NUMERADOR, 2);
+
+        se (DENOMINADOR mod = 0)
+            então
+                início
+                    escreva ("S = ", RES, " - (", NUMERADOR, " / ", DENOMINADOR, ")");
+                    RES = RES - (NUMERADOR / DENOMINADOR);
+                fim;
+            senão
+                início
+                    escreva ("S = ", RES, " + (", NUMERADOR, " / ", DENOMINADOR, ")");
+                    RES = RES + (NUMERADOR / DENOMINADOR);
+                fim;
+        fimse;
+    até (NUMERADOR < 10);
+
+    escreva("O valor de S = ", RES);
+fim.

@@ -1,0 +1,85 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+24) Construa um algoritmo que leia um conjunto de dados contendo altura e sexo ('M' para masculino e 'F' para feminino) de 50 pessoas e, depois, calcule e escreva:
+
+• a maior e a menor altura do grupo;
+• a média de altura das mulheres;
+• o número de homens e a diferença porcentual entre eles e as mulheres.
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: ALTURA, // altura das pessoas
+          MENOR, MAIOR, // menor e maior altura
+          SOMA_AF, MEDIA_AF, // soma e a média das alturas do sexo feminino
+          PORCH; // porcentagem de homens no grupo
+    inteiro: CON, // declaração do contador (variável de controle)
+             QTDEM, // total de pessoas do sexo masculino
+             QTDEF, // total de pessoas do sexo feminino
+             QTDEP, // total de pessoas no grupo
+             SEXO; // masculino ou feminino
+
+    MENOR <- 0;
+    MAIOR <- 0;
+    SOMA_AF <- 0;
+    QTDEM <- 0;
+    QTDEF <- 0;
+    QTDEP <- 0;
+
+    // entrada de dados
+    para CON de 1 até 50 passo 1 faça
+        escreva ("Sistema para exibir estatísticas entre as alturas de um grupo de 50 pessoas:");
+        escreva ("Informações -> ", CON, "º pessoa (altura e sexo)");
+        escreva ("Digite a altura da pessoa: ");
+        leia (ALTURA);
+        escreva ("+------------------------------------+\n");
+        escreva ("| COD |             SEXO             |\n");
+        escreva ("+------------------------------------+\n");
+        escreva ("|  1  →  Feminino                    |\n");
+        escreva ("|  2  →  Masculino                   |\n");
+        escreva ("+------------------------------------+\n");
+        escreva ("Digite o sexo da pessoa: ");
+        leia (SEXO);
+
+        se (CON = 1)
+            então
+                início
+                    MENOR <- ALTURA;
+                    MAIOR <- ALTURA;
+                fim;
+            senão se (ALTURA > MAIOR)
+                    então
+                        MAIOR <- ALTURA;
+                    senão se (ALTURA < MENOR)
+                            então
+                                MENOR <- ALTURA;
+                          fimse;
+                  fimse;
+        fimse;
+
+        escolha SEXO
+            caso "1": QTDEF <- QTDEF + 1;
+                      SOMA_AF <- SOMA_AF + ALTURA;
+            caso "2": QTDEM <- QTDEM + 1;
+        fimescolha;
+    fimpara;
+
+    // processamento de dados
+    MEDIA_AF <- SOMA_AF / QTDEF;
+    QTDEP <- QTDEF + QTDEM;
+    PORCH <- (QTDEM * 100.0) / QTDEP;
+
+    // saída de dados
+    escreva ("Confira o resultado da Pesquisa Estatística");
+    escreva ("• A maior altura do grupo: ", MAIOR);
+    escreva ("• A menor altura do grupo: ", MENOR);
+    escreva ("• A média da altura entre as mulheres: ", MEDIA_AF);
+    escreva ("• O número de homens no grupo: ", QTDEM);
+    escreva ("• O porcentual de homens no grupo: ", PORCH, "%");
+    escreva ("• O porcentual de mulheres no grupo: ", 100 - PORCH, "%"); 
+fim.
