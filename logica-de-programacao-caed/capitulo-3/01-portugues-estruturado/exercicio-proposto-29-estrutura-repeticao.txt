@@ -1,0 +1,104 @@
+/*
+----------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+----------------------------------------------------------
+
+29) Uma agência de publicidade quer prestar serviços somente para as maiores companhias - em número de funcionários 
+- em cada uma das classificações: grande, média, pequena e microempresa. Para tal, consegue um conjunto de dados com o 
+código, o número de funcionário e o porte da empresa. Construa um algoritmo que liste o código da empresa com maiores 
+recursos humanos dentro de sua categoria. Utilize como finalizador o código de empresa igual a 0.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: ID, // identificador
+		 COD, // código da empresa
+		 NF, // número de funcionários
+		 CODG, NFG, // código e número para empresa de porte grande
+		 CODM, NFM, // código e número para empresa de porte médio
+		 CODP, NFP, // código e número para empresa de porte pequeno
+		 CODME, NFME; // código e número para empresa de porte microempresa
+
+    // inicialização dos diversos contadores    
+    NF <- 0;
+    COD <- 0;
+    CODG <- 0;
+    NFG <- 0;
+    CODM <- 0;
+    NFM <- 0;
+    CODP <- 0;
+    NFP <- 0;
+    CODME <- 0;
+    NFME <- 0;
+
+    // entrada e processamento de dados
+    repita
+        escreva ("Sistema para exibir as maiores empresas em cada categoria:");
+        escreva ("+-----------------------------------------+");
+        escreva ("|    MENU (TIPOS DE PORTES DE EMPRESAS)   |");
+        escreva ("+-----------------------------------------+");
+        escreva ("|  ID |           CATEGORIAS              |");
+        escreva ("+-----------------------------------------+");
+        escreva ("|  1  →  Grande                           |");
+        escreva ("|  2  →  Média                            |");
+        escreva ("|  3  →  Pequena                          |");
+        escreva ("|  4  →  Microempresa                     |");
+        escreva ("|  0  →  Encerrar                         |");
+        escreva ("+-----------------------------------------+");
+        escreva ("Escolha o porte da empresa, para cadastrar: ");
+        leia (ID);
+
+        se (ID = 1 ou ID = 2 ou ID = 3 ou ID = 4)
+            então
+                início
+                    escreva ("Digite o código da empresa: ");
+                    leia (COD);
+                    escreva ("Digite o número de funcionários: ");
+                    leia (NF);
+                fim;
+        fimse;
+
+        escolha ID
+            caso "1": se (NF > NFG)
+                          então
+                              início
+                                  NFG <- NF;
+                                  CODG <- COD;
+                              fim;
+                      fimse;
+            caso "2": se (NF > NFM)
+                          então
+                              início
+                                  NFM <- NF;
+                                  CODM <- COD;
+                              fim;
+                      fimse;
+            caso "3": se (NF > NFP)
+                          então
+                              início
+                                  NFP <- NF;
+                                  CODP <- COD;
+                              fim;
+                      fimse;
+            caso "4": se (NF > NFME)
+                          então
+                              início
+                                  NFME <- NF;
+                                  CODME <- COD;
+                              fim;
+                      fimse;
+            caso "0": escreva ("Cadastro encerrado!");
+            caso contrário: escreva ("*** ALERTA ***");
+                            escreva ("ID inválido, selecione novamente!");
+        fimescolha;
+    até (ID <> 0);
+
+    // saída de dados
+    escreva("Exibindo o relatório: As maiores empresas em cada categoria.");
+    escreva("Empresa Grande --------- Código: ", CODG, " --- Nº de Funcionários: ", NFG);
+    escreva("Empresa Média ---------- Código: ", CODM, " --- Nº de Funcionários: ", NFM);
+    escreva("Empresa Pequena -------- Código: ", CODP, " --- Nº de Funcionários: ", NFP);
+    escreva("Empresa Microempresa --- Código: ", CODME, " --- Nº de Funcionários: ", NFME);
+fim.
