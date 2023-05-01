@@ -1,0 +1,44 @@
+/*
+-------------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+-------------------------------------------------------------
+
+27) Escreva um algoritmo que calcule e escreva a soma dos dez primeiros termos da seguinte série:
+
+X = 2/500 - 5/450 + 2/400 - 5/350 + ...
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: RES, // determinar o valor de X
+          DENOMINADOR;
+    inteiro: CON; // variável de controle
+
+    RES <- 0;
+    DENOMINADOR <- 500;
+
+    escreva ("Sistema para exibir o resultado dos dez primeiros termos da seguinte série:");
+    escreva ("X = 2/500 - 5/450 + 2/400 - 5/350 + ...");
+
+    // processamento e saída de dados
+    para CON de 1 até 10 passo 1 faça
+        se (DENOMINADOR mod 100 = 0)
+            então
+                início
+                    escreva ("X = ", RES, " + (2 / ", DENOMINADOR, ")");
+                    RES = RES + (2 / DENOMINADOR);
+                fim;
+            senão
+                início
+                    escreva ("X = ", RES, " - (5 / ", DENOMINADOR, ")");
+                    RES = RES - (5 / DENOMINADOR);
+                fim;
+        fimse;
+
+        DENOMINADOR <- DENOMINADOR - 50;
+    fimpara;
+
+    escreva("O valor de X = ", RES);
+fim.
