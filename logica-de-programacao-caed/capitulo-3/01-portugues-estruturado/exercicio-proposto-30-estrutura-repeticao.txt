@@ -1,0 +1,115 @@
+/*
+----------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+----------------------------------------------------------
+
+30) Calcule o imposto de renda de um grupo de dez contribuintes, considerando que os dados de cada contribuinte, 
+número do CPF, número de dependentes e renda mensal são valores fornecidos pelo usuário. Para cada contribuinte será 
+feito um desconto de 5% do salário mínimo por dependente.
+
+Os valores da alíquota para cálculo do imposto são:
+
+Renda líquida				Alíquota
+Até 2 salários mínimos		Isento
+2 a 3 salários mínimos		5%
+3 a 5 salários mínimos		10%
+5 a 7 salários mínimos		15%
+Acima de 7 salários mínimos	20%
+
+Observe que deve ser fornecido o valor atual do salário mínimo para que o algoritmo calcule os valores corretamente.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: CPF, // CPF do contribuinte
+             CON;
+    real: ND, // número de dependentes
+          SC, // salário do contribuinte
+          SM, // salário mínimo
+          QTDE_SM, // quantidade de salários mínimos
+          IMP, // imposto de renda
+          AUX; // variável auxiliar
+    caracter: opcao; // variável para finalizar o sistema
+
+    // inicialização dos diversos contadores    
+    IMP <- 0.0;
+    opcao <- "a";
+
+    // entrada de dados
+    escreva ("Sistema para calcular o imposto de renda de 10 contribuintes");
+    escreva ("Digite o valor do salário mínimo atual: R$ ");
+    leia (SM);
+
+    // processamento e saída de dados
+    para CON de 1 até 10 passo 1 faça
+        escreva (CON, "º contribuinte, insira os dados a seguir.");
+        escreva ("A) Informe o CPF: ");
+        leia (CPF);
+        escreva ("B) O número de dependentes: ");
+        leia (ND);
+        escreva ("C) Renda mensal: R$ ");
+        leia (SC);
+
+        AUX = SC
+        SC = SC - (ND * (SM * (5.0 / 100.0))) // desconto 5% salário mínimo por cada dependente para o contribuinte
+        QTDE_SM = SC / SM // quantidade de salários mínimos sobre renda mensal
+
+        se (QTDE_SM <= 2)
+            então
+                IMP <- 0;
+            senão se (QTDE_SM > 2 e QTDE_SM <= 3)
+                    então
+                        IMP <- SC * (5 / 100);
+                    senão se (QTDE_SM > 3 e QTDE_SM <= 5)
+                            então
+                                IMP <- SC * (10 / 100);
+                            senão se (QTDE_SM > 5 e QTDE_SM <= 7)
+                                    então
+                                        IMP <- SC * (15 / 100);
+                                    senão se (QTDE_SM > 7)
+                                            então
+                                                IMP <- SC * (20 / 100);
+                                          fimse;
+                                  fimse;
+                          fimse;
+                  fimse;
+        fimse;
+
+        se (IMP >= 0.0)
+            então
+                início
+                    escreva ("=== INFORMAÇÕES > IMPOSTO DE RENDA ===");
+                    escreva ("CPF do ", CON, "º contribuinte: ", CPF);
+                    escreva ("Salário mensal do contribuinte: R$ ", AUX);
+                    escreva ("Quantidade de dependente(s): ", ND);
+                    escreva ("Salário mensal com base Nº de dependente(s): R$ ", SC);
+                    escreva ("Imposto a ser pago: ", IMP);
+                fim;
+        fimse;
+
+        repita
+            se (CON >= 10)
+                então
+                    opcao <- "n";
+                senão
+                    escreva ("Deseja limpar a tela, ir para próximo contribuinte (Sim | Não): ");
+                    leia (opcao);
+
+                    se (opcao == "sim" ou opcao == "Sim" ou opcao == "SIM" ou opcao == "s" ou opcao == "S")
+                        então
+                            início
+                                escreva ("Sistema para calcular o imposto de renda de 10 contribuintes");
+                                escreva ("Salário mínimo: R$ ", SM);
+                            fim;
+                        senão
+                            CON <- CON + 11;
+                    fimse;
+            fimse;
+        até (opcao <> "n");
+    fimpara;
+
+    escreva ("Concluído relatório para os 10 contribuintes.");
+    escreva ("Sistema encerrado, obrigado pela utilização!");   
+fim.
