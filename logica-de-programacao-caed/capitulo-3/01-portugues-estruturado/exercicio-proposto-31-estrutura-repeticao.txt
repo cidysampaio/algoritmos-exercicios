@@ -1,0 +1,90 @@
+/*
+----------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+----------------------------------------------------------
+
+31) Foi realizada uma pesquisa sobre algumas características físicas da população de uma certa região, a qual coletou 
+os seguintes dados referentes a cada habitante para análise:
+
+• sexo ('M' - masculino ou 'F' - feminino);
+• cor dos olhos ('A' - azuis, 'V' - verdes ou 'C' - castanhos);
+• cor dos cabelos ('L' - loiros, 'C' - castanhos ou 'P' - pretos);
+• idade.
+
+Faça um algoritmo que determine e escreva:
+
+• a maior idade dos habitantes;
+• a porcentagem entre os indivíduos do sexo masculino, cuja idade está entre 18 e 35 anos, inclusive:
+• a porcentagem do total de indivíduos do sexo feminino cuja idade está entre 18 e 35 anos, inclusive, e que tenham 
+olhos verdes e cabelos loiros.
+
+O final do conjunto de habitantes é reconhecido pelo valor -1 entrando como idade.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: IDADE, // idade do indivíduo
+		 IMAIOR, // maior idade dos habitantes
+		 QTDEIM, // total de indivíduos do sexo masculino
+		 QTDEIF, // total de indivíduos do sexo feminino
+		 QTDEP; // total de indivíduos
+    real: PSM, // porcentagem de indivíduos do sexo masculino
+	    PSF; // porcentagem de indivíduos do sexo feminino
+    caracter: SEXO, // sexo do indivíduo
+		  CO, // cor dos olhos
+		  CC; // cor de cabelo
+
+    // inicialização dos diversos contadores    
+    QTDEP <- 0;
+    IMAIOR <- 0;
+    QTDEIM <- 0;
+    QTDEIF <- 0;
+
+    // entrada de dados
+    escreva ("Sistema de pesquisa sobre características físicas da população");
+    escreva ("1.0º usuário - insira os dados");
+    escreva ("A) Digite a idade da pessoa (-1 para sair): ");
+    leia (IDADE);
+
+    // processamento de dados
+    enquanto (IDADE <> -1.0) faça
+        escreva ("B) Informe o sexo ('M' - Masculino | 'F' - Feminino): ");
+        leia (SEXO);
+        escreva ("C) Informe a cor dos olhos ('A' - Azuis, 'V' - Verdes ou 'C' - Castanhos): ");
+        leia (CO);
+        escreva ("D) Informe a cor dos cabelos ('L' - Loiros, 'C' - Castanhos ou 'P' - Pretos): ");
+        leia (CC);
+
+        QTDEP <- QTDEP + 1;
+
+        se (IDADE > IMAIOR)
+            então
+                IMAIOR <- IDADE;
+        fimse;
+
+        se ((SEXO = "M" ou SEXO = "m") e (IDADE >= 18.0 e IDADE <= 35.0))
+            então
+                QTDEIM <- QTDEIM + 1;
+            senão se ((SEXO = "F" ou SEXO = "f") e (IDADE >= 18.0 e IDADE <= 35.0) e (CO = "V" ou CO = "v") e (CC = "L" ou CC = "l"))
+                    então
+                        QTDEIF <- QTDEIF + 1;
+                  fimse;
+        fimse;
+
+        escreva ("Sistema de pesquisa sobre características físicas da população");
+        escreva (QTDEP + 1, "º usuário - insira os dados");
+        escreva ("Digite a idade da pessoa (-1 para sair): ");
+        leia (IDADE);
+    fimenquanto;
+
+    PSM <- (QTDEIM * 100) / QTDEP;
+    PSF <- (QTDEIF * 100) / QTDEP;
+
+    // saída de dados
+    escreva ("Relatório da pesquisa -> Características físicas da população 2023");
+    escreva ("A maior idade do grupo: ", IMAIOR);
+    escreva ("Porcentagem masculino com idade entre 18 e 35 anos: ", PSM, "%");
+    escreva ("Porcentagem feminina com olhos verdes, cabelos loiros que estão entre 18 e 35 anos: ", PSF, "%");    
+fim.
