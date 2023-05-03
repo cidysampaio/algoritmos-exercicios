@@ -1,0 +1,38 @@
+/*
+----------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+----------------------------------------------------------
+
+32) Anacleto tem 1,50 metro e cresce 2 centímetros por ano, enquanto Felisberto tem 1,10 metro e cresce 3 centímetros 
+por ano. Construa um algoritmo que calcule e imprima quantos anos serão necessários para que Felisberto seja maior 
+que Anacleto.
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: ANACLETO, // altura de Anacleto
+	    FELISBERTO; // altura de Felisberto
+    inteiro: CON; // declaração do contador (variável de controle)
+
+    // inicialização dos diversos contadores    
+    ANACLETO <- 1.50;
+    FELISBERTO <- 1.10;
+    CON <- 0;
+
+    escreva ("Sistema para calcular Altura x Tempo");
+    escreva ("Anacleto tem 1,50 metro e cresce 2 centímetros por ano");
+    escreva ("Felisberto tem 1,10 metro e cresce 3 centímetros por ano");
+
+    // processamento de dados
+    enquanto (ANACLETO >= FELISBERTO) faça
+        ANACLETO <- ANACLETO + 0.02
+        FELISBERTO <- FELISBERTO + 0.03
+        CON <- CON + 1
+        escreva("Ano: ", CON, " -> Anacleto: ", ANACLETO, " | ", "Felisberto: ", FELISBERTO)
+    fimenquanto;
+
+    // saída de dados
+    escreva ("Serão necessários ", CON, " anos para Felisberto ultrapassar a altura de Anacleto.");    
+fim.
