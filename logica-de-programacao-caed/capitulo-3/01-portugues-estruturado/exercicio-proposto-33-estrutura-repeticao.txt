@@ -1,0 +1,99 @@
+/*
+----------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+----------------------------------------------------------
+
+33) Realizou-se uma pesquisa para determinar alguns dados estatísticos em relação ao conjunto de crianças nascidas em 
+um certo período de uma determinada maternidade. Construa um algoritmo que leia o número de crianças nascidas nesse 
+período e, depois, em um número indeterminado de vezes, o sexo de um recém-nascido prematuro ('M' - masculino ou 'F' 
+- feminino) e o número de dias que este foi mantido na incubadora.
+
+Como finalizador, teremos a letra 'X' no lugar do sexo da criança.
+
+Determine e imprima:
+
+• a porcentagem de recém-nascidos prematuros;
+• a porcentagem de recém-nascidos meninos e meninas do total de prematuros;
+• a média de dias de permanência dos recém-nascidos prematuros na incubadora;
+• o maior número de dias que um recém-nascido prematuro permaneceu na incubadora.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: QTDE_CN, // quantidade de crianças nascidas no período
+		 QTDE_RNP, // quantidade de recém-nascidos prematuros
+		 QTDE_DI, // quantidade de dias na incubadora
+		 CON_M, // contador criança sexo masculino
+		 CON_F, // contador criança sexo feminino
+		 TOTAL_DI, // total de dias na incubadora
+		 MAIOR_DIAS; // maior número de dias que um recém-nascido prematuro permaneceu na incubadora
+    real: PC_RNP, // porcentagem de recém-nascidos prematuros
+	    PC_RNM, // porcentagem de recém-nascidos prematuros masculinos
+	    PC_RNF, // porcentagem de recém-nascidos prematuros feminino
+	    MEDIA_DIAS; // média de dias de permanência dos recém-nascidos prematuros na incubadora
+    caracter: SEXO; // sexo do recém-nascido prematuro
+
+    // inicialização dos diversos contadores    
+    QTDE_RNP <- 0;
+    QTDE_DI <- 0;
+    TOTAL_DI <- 0;
+    CON_M <- 0;
+    CON_F <- 0;
+    MAIOR_DIAS <- 0;
+    SEXO <- 'A';
+
+    escreva ("Sistema de dados estatísticos para maternidade Santa Casa");
+    escreva ("Informe o número de crianças nascidas no período primeiro semestre do ano atual: ");
+    leia (QTDE_CN);
+
+    // entrada e processamento de dados
+    enquanto (SEXO <> "X") faça
+        escreva ("Informe o sexo do recém-nascido ('M' - Masculino | 'F' - Feminino | 'X' - Sair): ");
+        leia (SEXO);
+
+        se (SEXO != 'X')
+            então
+                início
+                    escreva ("Quantos dias o recém-nascido esteve na incubadora? ");
+                    leia (QTDE_DI);
+
+                    se (QTDE_DI > 0.0)
+                        então
+                            início
+                                QTDE_RNP <- QTDE_RNP + 1;
+
+                                se (SEXO == 'M')
+                                    então
+                                        CON_M <- CON_M + 1;
+                                    senão
+                                        CON_F <- CON_F + 1;
+                                fimse;
+                            fim;
+                    fimse;
+
+                    se (QTDE_DI > MAIOR_DIAS)
+                        então
+                            MAIOR_DIAS <- QTDE_DI;
+                    fimse;
+
+                    TOTAL_DI <- TOTAL_DI + QTDE_DI;
+                fim;
+        fimse;
+
+        escreva ("Sistema de dados estatísticos para maternidade Santa Casa");
+    fimenquanto;
+
+    PC_RNP <- (QTDE_RNP * 100) / QTDE_CN;
+    PC_RNM <- (CON_M * 100) / QTDE_RNP;
+    PC_RNF <- (CON_F * 100) / QTDE_RNP;
+    MEDIA_DIAS <- TOTAL_DI / QTDE_RNP;
+
+    // saída de dados
+    escreva ("Porcentagem de recém-nascidos prematuros: ", PC_RNP, "%");
+    escreva ("Porcentagem de recém-nascidos meninos prematuros: ", PC_RNM, "%");
+    escreva ("Porcentagem de recém-nascidos meninas prematuras: ", PC_RNF, "%");
+    escreva ("Média de dias de permanência dos recém-nascidos prematuros na incubadora: ", MEDIA_DIAS);
+    escreva ("Maior número de dias que um recém-nascido prematuro permaneceu na incubadora: ", MAIOR_DIAS);
+fim.
