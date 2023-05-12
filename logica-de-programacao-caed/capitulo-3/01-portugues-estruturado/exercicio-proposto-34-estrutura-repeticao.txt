@@ -1,0 +1,142 @@
+/*
+----------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+----------------------------------------------------------
+
+34) Um cinema possui capacidade de 100 lugares e está sempre com ocupação total. Certo dia, cada espectador respondeu 
+a um questionário, no qual constava:
+
+• sua idade;
+• sua opinião em relação ao filme, segundo as seguintes notas:
+
+Nota		Significado
+A		Ótimo
+B		Bom
+C		Regular
+D		Ruim
+E		Péssimo
+
+Elabore um algoritmo que, lendo esses dados, calcule e imprima:
+
+• a quantidade de respostas Ótimo;
+• a diferença porcentual entre respostas Bom e Regular;
+• a média de idade das pessoas que responderam Ruim;
+• a porcentagem de respostas Péssimo e a maior idade que utilizou essa opção;
+• a diferença de idade entre a maior idade que respondeu Ótimo e a maior idade que respondeu Ruim.
+
+*/
+
+
+início
+    // declaração de variáveis
+    inteiro: CON_NA, // contador de nota ótimo
+		 CON_NB, // contador de nota bom
+		 CON_NC, // contador de nota regular
+		 CON_ND, // contador de nota ruim
+		 CON_NE, // contador de nota péssimo
+		 IP, // idade de pessoa
+		 SOMA_IND, // soma das idades pessoas selecionaram nota ruim
+		 SOMA_NOTAS, // somatório dos contadores de notas
+		 MAIOR_INA, // maior idade selecionou nota ótimo
+		 MAIOR_IND, // maior idade selecionou nota ruim
+		 MAIOR_INE, // maior idade selecionou nota péssimo
+		 IDADE_AD, // diferença maior idade entre ótimo e ruim
+		 CON // declaração do contador (variável de controle)
+    real: MD, // média das idades pessoas selecionaram nota ruim
+			PC_NB, // porcentagem pessoas selecionaram nota bom
+			PC_NC, // porcentagem pessoas selecionaram nota regular
+			PC_NE, // porcentagem pessoas selecionaram nota péssimo
+			DPC_NBC // diferença porcentagem entre bom e regular
+    caracter: NOTA // opções de notas (ótimo, bom, regular, ruim, péssimo)
+
+    // inicialização dos diversos contadores    
+    CON_NA <- 0;
+    CON_NB <- 0;
+    CON_NC <- 0;
+    CON_ND <- 0;
+    CON_NE <- 0;
+    MAIOR_INA <- 0;
+    MAIOR_IND <- 0;
+    MAIOR_INE <- 0;
+    SOMA_IND <- 0;
+
+    // entrada e processamento de dados
+    para CON de 1 até 100 passo 1 faça
+        escreva ("Sistema de avaliação de filmes no cinema Metacritic\n\n");
+        escreva ("Informe sua idade: ");
+        leia (IP);
+        escreva ("+-------------------------------+\n");
+        escreva ("|   MENU (AVALIAÇÃO DE FILMES)  |\n");
+        escreva ("+-------------------------------+\n");
+        escreva ("| NOTA |      CATEGORIAS        |\n");
+        escreva ("+-------------------------------+\n");
+        escreva ("|   A  →  Ótimo                 |\n");
+        escreva ("|   B  →  Bom                   |\n");
+        escreva ("|   C  →  Regular               |\n");
+        escreva ("|   D  →  Ruim                  |\n");
+        escreva ("|   E  →  Péssimo               |\n");
+        escreva ("|   X  →  Encerrar              |\n");
+        escreva ("+-------------------------------+\n");
+        escreva ("Escolha a nota para o filme: ");
+        leia (NOTA);
+
+        escolha NOTA
+            caso "A": CON_NA <- CON_NA + 1;
+                      se (IP > MAIOR_INA)
+                          então
+                              MAIOR_INA <- IP;
+                      fimse;
+            caso "B": CON_NB <- CON_NB + 1;
+            caso "C": CON_NC <- CON_NC + 1;
+            caso "D": CON_ND <- CON_ND + 1;
+                      SOMA_IND <- SOMA_IND + IP;
+                      se (IP > MAIOR_IND)
+                          então
+                              MAIOR_IND <- IP;
+                      fimse;
+            caso "E": CON_NE <- CON_NE + 1;
+                      se (IP > MAIOR_INE)
+                          então
+                              MAIOR_INE <- IP;
+                      fimse;
+            caso "X": CON <- 100;
+            caso contrário: escreva ("*** ALERTA ***");
+                            escreva ("NOTA inválida, selecione novamente!");
+        fimescolha;
+
+    fimpara;
+
+    SOMA_NOTAS <- CON_NA + CON_NB + CON_NC + CON_ND + CON_NE;
+
+    se (SOMA_NOTAS > 0)
+        então
+            PC_NB <- (CON_NB * 100) / SOMA_NOTAS;
+            PC_NC <- (CON_NC * 100) / SOMA_NOTAS;
+            PC_NE <- (CON_NE * 100) / SOMA_NOTAS;
+            MD <- SOMA_IND / CON_ND;
+
+            se (PC_NB > PC_NC)
+                então
+                    DPC_NBC <- PC_NB - PC_NC;
+                senão
+                    DPC_NBC <- PC_NC - PC_NB;
+            fimse;
+
+            se (MAIOR_INA > MAIOR_IND)
+                então
+                    IDADE_AD <- MAIOR_INA - MAIOR_IND;
+                senão
+                    IDADE_AD <- MAIOR_IND - MAIOR_INA;
+            fimse;
+
+            // saída de dados
+            escreva ("Relatório da pesquisa -> Avaliação de filmes no cinema Metacritic");
+            escreva ("O total de pessoas que selecionaram (Ótimo): ", CON_NA);
+            escreva ("Porcentagem (Bom): ", PC_NB, "% e (Regular): ", PC_NC, "% com diferença porcentual: ", DPC_NBC, "%");
+            escreva ("A média de idade das pessoas que selecionaram (Ruim): ", MD, " ano(s)");
+            escreva ("Porcentagem (Péssimo): ", PC_NE, "% e maior idade registrada nessa opção: ", MAIOR_INE, " ano(s)");
+            escreva ("Maior idade registrada em (Ótimo): ", MAIOR_INA, " ano(s) e maior idade registrada em (Ruim): ", MAIOR_IND, " ano(s) e a diferença de idade: ", IDADE_AD, " ano(s)");
+        senão
+            escreva ("Nenhuma informação foi registrado!");
+    fimse;
+fim.
