@@ -1,0 +1,331 @@
+/*
+----------------------------------------------------------
+Capítulo 3 - Exercício Proposto (Estrutura de Repetição)
+----------------------------------------------------------
+
+35) Em um prédio há três elevadores denominados A, B e C. Para otimizar o sistema de controle dos elevadores foi 
+realizado um levantamento no qual cada usuário respondia:
+
+• O elevador que utilizava com mais frequência;
+• O período em que utilizava o elevador, entre:
+    • 'M' = matutino;
+    • 'V' = vespertino;
+    • 'N' = noturno.
+
+Construa um algoritmo que calcule e imprima:
+
+• Qual é o elevador mais frequentado e em que período se concentra o maior fluxo;
+• Qual o período mais usado de todos e a que elevador pertence;
+• Qual a diferença porcentual entre o mais usado dos horários e o menos usado;
+• Qual a porcentagem sobre o total de serviços prestados do elevador de média utilização.
+
+*/
+
+
+início
+    // declaração de variáveis
+    real: PEMU, // porcentagem do elevador mais utilizado
+          SOMA_EAM, SOMA_EAV, SOMA_EAN, SOMA_PM, // somatório dos períodos para elevador A
+          SOMA_EBM, SOMA_EBV, SOMA_EBN, SOMA_PV, // somatório dos períodos para elevador B
+          SOMA_ECM, SOMA_ECV, SOMA_ECN, SOMA_PN, // somatório dos períodos para elevador C
+          SOMA_EA, SOMA_EB, SOMA_EC, // somatório do uso dos elevadores
+          TOTAL_PER, // total dos períodos
+          TOTAL_ELEV, // total do uso dos elevadores
+          PPM, PPV, PPN, // porcentagem dos períodos
+          DPP, // diferença porcentual entre maior período e o menor
+          PEA, PEB, PEC, // porcentagem do uso dos elevadores
+          PEMEDIA; // porcentagem do elevador com médio uso
+    caracter: ELEV, // selecionar o tipo de elevador
+              PER, // selecionar o período
+              ELEV_MAIS, // elevador mais utilizado
+              PMAIS; // período mais utilizado
+
+    // inicialização dos diversos contadores    
+    SOMA_EAM <- 0;
+    SOMA_EAV <- 0;
+    SOMA_EAN <- 0;
+    SOMA_EA <- 0;
+    SOMA_EBM <- 0;
+    SOMA_EBV <- 0;
+    SOMA_EBN <- 0;
+    SOMA_EB <- 0;
+    SOMA_ECM <- 0;
+    SOMA_ECV <- 0;
+    SOMA_ECN <- 0;
+    SOMA_EC <- 0;
+    SOMA_PM <- 0;
+    SOMA_PV <- 0;
+    SOMA_PN <- 0;
+    DPP <- 0;
+    PEMEDIA <- 0;
+    ELEV_MAIS <- '';
+    PMAIS <- '';
+
+    // entrada e processamento de dados
+    escreva ("Sistema para exibir o resultado da utilização dos elevadores e o período");
+    escreva ("Qual o elevador mais utilizado A, B ou C ('S' - Sair): ");
+    leia (ELEV);
+
+    enquanto (ELEV <> 'S')
+        escreva ("Qual o período mais utilizado M - matutino, V - vespertino ou N - noturno: ");
+        leia (PER);
+
+        se (ELEV = 'A')
+            então
+                se (PER = 'M')
+                    então
+                        SOMA_EAM <- SOMA_EAM + 1;
+                    senão se (PER = 'V')
+                            então
+                                SOMA_EAV <- SOMA_EAV + 1;
+                            senão se (PER = 'N')
+                                    então
+                                        SOMA_EAN <- SOMA_EAN + 1;
+                                  fimse;
+                          fimse;
+                fimse;
+            senão se (ELEV = 'B')
+                    então
+				se (PER = 'M')
+				    então
+				        SOMA_EBM <- SOMA_EBM + 1;
+				    senão se (PER = 'V')
+				            então
+				                SOMA_EBV <- SOMA_EBV + 1;
+				            senão se (PER = 'N')
+				                    então
+				                        SOMA_EBN <- SOMA_EBN + 1;
+				                  fimse;
+				          fimse;
+				fimse;
+                  fimse;
+            senão se (ELEV = 'C')
+                    então
+				se (PER = 'M')
+				    então
+				        SOMA_ECM <- SOMA_ECM + 1;
+				    senão se (PER = 'V')
+				            então
+				                SOMA_ECV <- SOMA_ECV + 1;
+				            senão se (PER = 'N')
+				                    então
+				                        SOMA_ECN <- SOMA_ECN + 1;
+				                  fimse;
+				          fimse;
+				fimse;
+                  fimse;
+        fimse;
+
+        escreva ("Sistema para exibir o resultado da utilização dos elevadores e o período");
+        escreva ("Qual o elevador mais utilizado A, B ou C ('S' - Sair): ");
+        leia (ELEV);
+    fimenquanto;
+
+    SOMA_EA <- SOMA_EAM + SOMA_EAV + SOMA_EAN;
+    SOMA_EB <- SOMA_EBM + SOMA_EBV + SOMA_EBN;
+    SOMA_EC <- SOMA_ECM + SOMA_ECV + SOMA_ECN;
+
+    SOMA_PM <- SOMA_EAM + SOMA_EBM + SOMA_ECM;
+    SOMA_PV <- SOMA_EAV + SOMA_EBV + SOMA_ECV;
+    SOMA_PN <- SOMA_EAN + SOMA_EBN + SOMA_ECN;
+
+    TOTAL_PER <- SOMA_PM + SOMA_PV + SOMA_PN;
+    TOTAL_ELEV <- SOMA_EA + SOMA_EB + SOMA_EC;
+
+    PPM <- (SOMA_PM * 100) / TOTAL_PER;
+    PPV <- (SOMA_PV * 100) / TOTAL_PER;
+    PPN <- (SOMA_PN * 100) / TOTAL_PER;
+
+    PEA <- (SOMA_EA * 100) / TOTAL_ELEV;
+    PEB <- (SOMA_EB * 100) / TOTAL_ELEV;
+    PEC <- (SOMA_EC * 100) / TOTAL_ELEV;
+
+    // Elevador A mais utilizado e qual perído de maior fluxo
+    se (SOMA_EA > SOMA_EB e SOMA_EA > SOMA_EC)
+        então
+            se (SOMA_EAM > SOMA_EAV e SOMA_EAM > SOMA_EAN)
+                então
+                    ELEV_MAIS <- "Elevador A no período matutino";
+                senão se (SOMA_EAV > SOMA_EAM e SOMA_EAV > SOMA_EAN)
+                        então
+                            ELEV_MAIS <- "Elevador A no período vespertino";
+                        senão se (SOMA_EAN > SOMA_EAM e SOMA_EAN > SOMA_EAV)
+                                então
+                                    ELEV_MAIS <- "Elevador A no período noturno";
+                                senão se (SOMA_EAM = SOMA_EAV e SOMA_EAM = SOMA_EAN)
+                                        então
+                                            ELEV_MAIS <- "Elevador A com o mesmo fluxo entre os três períodos";
+                                        senão se (SOMA_EAM = SOMA_EAV)
+                                                então
+                                                    ELEV_MAIS <- "Elevador A com o mesmo fluxo entre os dois períodos matutino e vespertino";
+                                                senão se (SOMA_EAM = SOMA_EAN)
+                                                        então
+                                                            ELEV_MAIS <- "Elevador A com o mesmo fluxo entre os dois períodos matutino e noturno";
+                                                        senão se (SOMA_EAV = SOMA_EAN)
+                                                                então
+                                                                    ELEV_MAIS <- "Elevador A com o mesmo fluxo entre os dois períodos vespertino e noturno";
+                                                              fimse;
+                                                      fimse;
+                                              fimse;
+                                      fimse;
+                              fimse;
+                      fimse;
+            fimse;
+    fimse;
+
+    // Elevador B mais utilizado e qual perído de maior fluxo
+    se (SOMA_EB > SOMA_EA e SOMA_EB > SOMA_EC)
+        então
+            se (SOMA_EBM > SOMA_EBV e SOMA_EBM > SOMA_EBN)
+                então
+                    ELEV_MAIS <- "Elevador B no período matutino";
+                senão se (SOMA_EBV > SOMA_EBM e SOMA_EBV > SOMA_EBN)
+                        então
+                            ELEV_MAIS <- "Elevador B no período vespertino";
+                        senão se (SOMA_EBN > SOMA_EBM e SOMA_EBN > SOMA_EBV)
+                                então
+                                    ELEV_MAIS <- "Elevador B no período noturno";
+                                senão se (SOMA_EBM = SOMA_EBV e SOMA_EBM = SOMA_EBN)
+                                        então
+                                            ELEV_MAIS <- "Elevador B com o mesmo fluxo entre os três períodos";
+                                        senão se (SOMA_EBM = SOMA_EBV)
+                                                então
+                                                    ELEV_MAIS <- "Elevador B com o mesmo fluxo entre os dois períodos matutino e vespertino";
+                                                senão se (SOMA_EBM = SOMA_EBN)
+                                                        então
+                                                            ELEV_MAIS <- "Elevador B com o mesmo fluxo entre os dois períodos matutino e noturno";
+                                                        senão se (SOMA_EBV = SOMA_EBN)
+                                                                então
+                                                                    ELEV_MAIS <- "Elevador B com o mesmo fluxo entre os dois períodos vespertino e noturno";
+                                                              fimse;
+                                                      fimse;
+                                              fimse;
+                                      fimse;
+                              fimse;
+                      fimse;
+            fimse;
+    fimse;
+
+    // Elevador C mais utilizado e qual perído de maior fluxo
+    se (SOMA_EC > SOMA_EA e SOMA_EC > SOMA_EB)
+        então
+            se (SOMA_ECM > SOMA_ECV e SOMA_ECM > SOMA_ECN)
+                então
+                    ELEV_MAIS <- "Elevador C no período matutino";
+                senão se (SOMA_ECV > SOMA_ECM e SOMA_ECV > SOMA_ECN)
+                        então
+                            ELEV_MAIS <- "Elevador C no período vespertino";
+                        senão se (SOMA_ECN > SOMA_ECM e SOMA_ECN > SOMA_ECV)
+                                então
+                                    ELEV_MAIS <- "Elevador C no período noturno";
+                                senão se (SOMA_ECM = SOMA_ECV e SOMA_ECM = SOMA_ECN)
+                                        então
+                                            ELEV_MAIS <- "Elevador C com o mesmo fluxo entre os três períodos";
+                                        senão se (SOMA_ECM = SOMA_ECV)
+                                                então
+                                                    ELEV_MAIS <- "Elevador C com o mesmo fluxo entre os dois períodos matutino e vespertino";
+                                                senão se (SOMA_ECM = SOMA_ECN)
+                                                        então
+                                                            ELEV_MAIS <- "Elevador C com o mesmo fluxo entre os dois períodos matutino e noturno";
+                                                        senão se (SOMA_ECV = SOMA_ECN)
+                                                                então
+                                                                    ELEV_MAIS <- "Elevador C com o mesmo fluxo entre os dois períodos vespertino e noturno";
+                                                              fimse;
+                                                      fimse;
+                                              fimse;
+                                      fimse;
+                              fimse;
+                      fimse;
+            fimse;
+    fimse;
+
+    // Período matutino com maior fluxo e qual elevador
+    se (SOMA_PM > SOMA_PV e SOMA_PM > SOMA_PN)
+        então
+            se (SOMA_EAM > SOMA_EBM e SOMA_EAM > SOMA_ECM)
+                então
+                    PMAIS <- "Período matutino no elevador A";
+                senão se (SOMA_EBM > SOMA_EAM e SOMA_EBM > SOMA_ECM)
+                        então
+                            PMAIS <- "Período matutino no elevador B";
+                        senão se (SOMA_ECM > SOMA_EAM e SOMA_ECM > SOMA_EBM)
+                                então
+                                    PMAIS <- "Período matutino no elevador C";
+                              fimse;
+                      fimse;
+            fimse;
+    fimse;
+
+    // Período vespertino com maior fluxo e qual elevador
+    se (SOMA_PV > SOMA_PM e SOMA_PV > SOMA_PN)
+        então
+            se (SOMA_EAV > SOMA_EBV e SOMA_EAV > SOMA_ECV)
+                então
+                    PMAIS <- "Período vespertino no elevador A";
+                senão se (SOMA_EBV > SOMA_EAV e SOMA_EBV > SOMA_ECV)
+                        então
+                            PMAIS <- "Período vespertino no elevador B";
+                        senão se (SOMA_ECV > SOMA_EAV e SOMA_ECV > SOMA_EBV)
+                                então
+                                    PMAIS <- "Período vespertino no elevador C";
+                              fimse;
+                      fimse;
+            fimse;
+    fimse;
+
+    // Período noturno com maior fluxo e qual elevador
+    se (SOMA_PN > SOMA_PM e SOMA_PN > SOMA_PV)
+        então
+            se (SOMA_EAN > SOMA_EBN e SOMA_EAN > SOMA_ECN)
+                então
+                    PMAIS <- "Período noturno no elevador A";
+                senão se (SOMA_EBN > SOMA_EAN e SOMA_EBN > SOMA_ECN)
+                        então
+                            PMAIS <- "Período noturno no elevador B";
+                        senão se (SOMA_ECN > SOMA_EAN e SOMA_ECN > SOMA_EBN)
+                                então
+                                    PMAIS <- "Período noturno no elevador C";
+                              fimse;
+                      fimse;
+            fimse;
+    fimse;
+
+    // Diferença porcentual entre maior período e o menor
+    se (PPM > PPV e PPM > PPN e PPV > PPN)
+        então
+            DPP <- PPM - PPN;
+        senão se (PPV > PPM e PPV > PPN e PPM > PPN)
+                então
+                    DPP <- PPV - PPN;
+                senão se (PPN > PPM e PPN > PPV e PPM > PPV)
+                        então
+                            DPP <- PPN - PPV;
+                        senão se (PPN > PPM e PPN > PPV e PPV > PPM)
+                                então
+                                    DPP <- PPN - PPM;
+                              fimse;
+                      fimse;
+              fimse;
+    fimse;
+
+    // Porcentagem do elevador com médio uso
+    se (PEA > PEB e PEB > PEC)
+        então
+            PEMEDIA <- PEB;
+        senão se (PEB > PEA e PEA > PEC)
+                então
+                    PEMEDIA <- PEA;
+                senão se (PEA > PEC  e PEC > PEB)
+                        então
+                            PEMEDIA <- PEC;
+                      fimse;
+              fimse;
+    fimse;
+
+    // saída de dados
+    escreva ("Sistema para exibir o resultado da utilização dos elevadores e o período");
+    escreva ("Elevador mais frequentado e o período com o maior fluxo: ", ELEV_MAIS);
+    escreva ("Período mais utilizado e a que elevador pertence: ", PMAIS);
+    escreva ("Diferença porcentual entre o mais usado dos horários e o menos usado: ", DPP, "%");
+    escreva ("Porcentagem sobre o total de serviços prestados do elevador de média utilização: ", PEMEDIA, "%");
+fim.
