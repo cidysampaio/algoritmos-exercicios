@@ -24,16 +24,19 @@ Inicio
     
     aux <- velocidade - 80
     valor <- aux * 5
+
     Escreval()
     Escreval ("------------ INFORMAÇÕES ------------")
-    Escreval ("Velocidade máxima: 80 Km/h")
+    Escreval ("Placa de sinalização: 80 Km/h")
     Escreval ("Velocidade registrada:", velocidade, " Km/h")
         
     Se (velocidade > 80) entao
         Escreval ("Multa aplicada por:", aux, " Km/h acima da velocidade permitida!")
         Escreval ("Valor da multa: R$ ", valor:5:2)
-    Senao
-        Escreval ("Velocidade permitida!!!")
+    FimSe
+    
+    Se (velocidade <= 80) entao
+        Escreval ("Multa não aplicada!!!")
     FimSe
 
 Fimalgoritmo
